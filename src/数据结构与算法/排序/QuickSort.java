@@ -4,6 +4,12 @@ import 数据结构与算法.Utils.SortUtil;
 
 /**
  * 快速排序
+ *   时间复杂度 O(N*lgN)
+ *   平均情况比最好情况要好 39%； 最好的情况是每次从中间切分
+ *
+ * 三向切分快速排序：
+ *   对于具有大量重复元素的数组，可以将排序时间降低到线性级别
+ *   荷兰国旗问题
  */
 public class QuickSort {
     public static void main(String[] args){
@@ -55,6 +61,7 @@ public class QuickSort {
 
     /**
      * 三向切分快速排序
+     *      荷兰国旗问题
      */
     public static void threeWayQuickSort(Comparable[] a, int lo, int hi){
         if(hi<=lo)
