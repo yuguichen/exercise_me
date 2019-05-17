@@ -4,24 +4,24 @@ package 数据结构与算法.排序;
  * 优先队列（基于二叉堆实现：堆有序的完全二叉树）
  *    1 插入元素；
  *    2 删除最大元素；
- *
- * @param <Key>
  */
-public class MaxPQ< Key extends Comparable<Key> > {
+class MaxPQ<Key extends Comparable<Key>> {
     private Key[] pq; // pq[0] 不存储元素
     private int N = 0;
 
-    public MaxPQ(int maxN){
+    MaxPQ(int maxN){
         pq = (Key[]) new Comparable[maxN+1];
     }
 
-    public MaxPQ(Key[] keys) {
+    MaxPQ(Key[] keys) {
         N = keys.length;
-        pq = (Key[]) new Comparable[keys.length + 1];
-        for (int i = 0; i < N; i++)
+        pq = (Key[]) new Comparable[N + 1];
+        for(int i = 0; i < N; i++){
             pq[i+1] = keys[i];
-        for (int k = N/2; k >= 1; k--)
+        }
+        for(int k = N/2; k >= 1; k--){
             sink(k);
+        }
     }
 
     /**
