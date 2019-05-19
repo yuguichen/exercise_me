@@ -29,7 +29,6 @@ public class HeapSort {
             SortUtil.exch(a,1,N--);
             sink(a,1,N);
         }
-
     }
 
     public static void swim(Comparable[] a, int i){
