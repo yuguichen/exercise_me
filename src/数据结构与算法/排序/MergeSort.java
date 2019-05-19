@@ -27,8 +27,6 @@ public class MergeSort {
                 merge(a,lo,lo+size-1,Math.min(lo+size+size-1,length-1));
             }
         }
-
-
     }
 
     //自顶向下归并：先递归 后归并
