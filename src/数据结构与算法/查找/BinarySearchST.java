@@ -24,6 +24,8 @@ public class BinarySearchST<Key extends Comparable,Value> {
      * @return
      */
     public int rank(Key key){
+        if(N == 0)
+            return 0;
         int lo = 0;
         int hi = N-1;
 
