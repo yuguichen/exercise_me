@@ -1,5 +1,9 @@
 package 数据结构与算法.Utils;
 
+import org.junit.Test;
+
+import java.util.function.Supplier;
+
 public class SortUtil {
 
     public static final String DESC = "desc";
@@ -80,6 +84,24 @@ public class SortUtil {
             a[i] = (int)(Math.random() * max);
         }
         return a;
+    }
+
+
+
+    public static Integer[] getArray(int length, Supplier<Integer> sup){
+        Integer[] t  = new Integer[length];
+        for(int index=0;index<length;index++){
+            t[index] = sup.get();
+        }
+        return t;
+    }
+
+    @Test
+    public void test(){
+        Integer[] a = getArray(20,() -> (int)(Math.random() * 100));
+        for(int i=0;i<a.length;i++){
+            System.out.println(a[i]);
+        }
     }
 
 }

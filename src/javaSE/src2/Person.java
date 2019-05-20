@@ -37,13 +37,15 @@ public class Person extends Object{
 
     @Override
     public boolean equals(Object obj) {
-        //return super.equals(obj);
         Person p =(Person)obj;
-       //System.out.println("hnfuhvusfgbufhs");
         return this.name.equals(p.name)&&this.age==p.age ;
+    }
 
-        //return this.equals(p);
-
-
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

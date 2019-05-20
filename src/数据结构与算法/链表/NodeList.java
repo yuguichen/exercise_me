@@ -17,12 +17,10 @@ public class NodeList {
         System.out.println();
     }
 
-    /*
-     通过将链表中的值存储到set集合中，
-     若当前访问的值在set中已经存在，则删除当前节点
-
-    节省时间，需要额外空间
-  */
+    /**
+     * 通过将链表中的值存储到set集合中，若当前访问的值在set中已经存在，则删除当前节点
+     * 节省时间，需要额外空间
+     */
     public static void deleteDuplecate_Set(Node head){
         Set<Integer> set = new TreeSet<>();
         Node temp = head;
@@ -39,10 +37,10 @@ public class NodeList {
         }
     }
 
-    /*
-     通过双重循环遍历：
-        外循环正常遍历链表，内循环从链表头开始循环，只要遇到相同的节点就删除同时内循环结束。
-     节省空间，时间复杂度高
+    /**
+     * 通过双重循环遍历：
+     *      外循环正常遍历链表，内循环从链表头开始循环，只要遇到相同的节点就删除同时内循环结束。
+     * 节省空间，时间复杂度高
      */
     public static void deleteDuplecate_Foreach(Node head){
         Node cur = head;
@@ -70,7 +68,7 @@ public class NodeList {
     }
 
 
-    /*
+    /**
      * 找到链表中倒数第k个节点
      */
     public static Node find_K_Elem(Node head,int k){
