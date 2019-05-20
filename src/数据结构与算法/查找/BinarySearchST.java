@@ -29,6 +29,10 @@ public class BinarySearchST<Key extends Comparable,Value> {
         int lo = 0;
         int hi = N-1;
 
+        //这里要加上=判断，
+        // 若不加，在相等时不进行比较直接返回lo,
+        //       若keys[lo]<key,移动时会将keys[lo]向左移动一位导致新增key排在前面,
+        //       而key[lo]>keys[lo+1]
         while(lo<=hi){
             int mid = (lo+hi)/2;
             int cmp = key.compareTo(keys[mid]);
@@ -53,7 +57,7 @@ public class BinarySearchST<Key extends Comparable,Value> {
         }
         if(N == capacity)
             resize();
-
+        //移动时认为移动元素的key >= 新增元素key
         for(int i=N;i>rank;i--){
             keys[i] = keys[i-1];
             values[i] = values[i-1];
