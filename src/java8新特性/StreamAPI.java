@@ -71,5 +71,38 @@ public class StreamAPI {
 
     }
 
+    /**
+     * 映射操作map和flatmap
+     *      map：生成流，并接受一个函数作为参数，该函数将每个元素映射成一个新的元素放入流中；
+     *      flatmap：接受一个函数,该函数将流中每一个元素转换成另一个流，最后将所有的流连接成一个流；
+     *
+     *      如果一个函数返回的是流就使用flatmap,便于操作；
+     */
+    @Test
+    public void testMap(){
+        List<String> list = new ArrayList<>();
+
+        Stream<String> stream = peoples.stream().map(Person::getName);
+        stream.forEach(list::add);
+
+        System.out.println("-------------");
+
+        Stream<Stream<Character>> stream1 = list.stream().map(StreamAPI::filterCharater);
+        stream1.forEach( (sm)->sm.forEach(System.out::println) );
+
+        System.out.println("flatmap-------------");
+        Stream<Character> stream2 = list.stream().flatMap(StreamAPI::filterCharater);
+        stream2.forEach(System.out::println);
+
+    }
+
+    public static Stream<Character> filterCharater(String str){
+        List<Character> list = new ArrayList<>();
+        for(Character character : str.toCharArray()){
+            list.add(character);
+        }
+        return list.stream();
+    }
+
 
 }

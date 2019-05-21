@@ -8,7 +8,7 @@ public class Person extends Object{
     public Person(String name,int age){
         this.age=age;
         this.name=name;
-        System.out.println(this.age+".........."+this.name);
+        //System.out.println(this.age+".........."+this.name);
     }
 
     public Person(){
