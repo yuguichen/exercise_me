@@ -85,4 +85,38 @@ public class QuickSort {
         threeWayQuickSort(a,lo,lt-1);
         threeWayQuickSort(a,gt+1,hi);
     }
+
+
+    /**
+     * 三向切分快速排序
+     *  (对于基本数据类型)
+     */
+    public static void threeWayQuickSortOnChar(char[] a, int lo, int hi){
+        if(hi<=lo)
+            return; //递归的终止条件
+
+        int lt = lo;
+        int gt = hi;
+        int i = lo+1;
+        char v = a[lo];
+        char temp;
+
+        while(i <= gt){
+
+            if(a[i] < v) {
+                temp = a[lt];
+                a[lt++] = a[i];
+                a[i++] = temp;
+            } else if(a[i] > v) {
+                temp = a[i];
+                a[i] = a[gt];
+                a[gt--] = temp;
+            }
+            else
+                i++;
+        }
+
+        threeWayQuickSortOnChar(a,lo,lt-1);
+        threeWayQuickSortOnChar(a,gt+1,hi);
+    }
 }

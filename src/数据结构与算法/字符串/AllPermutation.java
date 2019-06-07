@@ -1,11 +1,8 @@
 package 数据结构与算法.字符串;
 
 import org.junit.Test;
-import 数据结构与算法.Utils.SortUtil;
 import 数据结构与算法.排序.QuickSort;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -23,7 +20,7 @@ public class AllPermutation {
         System.out.println("递归方法:"+list1.size());
         list1.stream().forEach(System.out::println);
 
-        String b = "1232";
+        String b = "123";
         //非递归方法
         Set<String> list2 = permutation(b);
         System.out.println("非递归方法:"+list2.size());
@@ -63,11 +60,6 @@ public class AllPermutation {
         return stringSet;
     }
 
-    private void swap(char[] chars, int i, int j){
-        char temp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = temp;
-    }
 
     /**
      * 非递归方法
@@ -79,32 +71,28 @@ public class AllPermutation {
     public Set<String> permutation(String str){
         Set<String> stringSet = new TreeSet<>();
         char[] chars = str.toCharArray();
-        Character[] characters = new Character[chars.length];
-        for(int i=0;i<chars.length;i++){
-            characters[i] = chars[i];
-        }
 
         //1、按自然升序排序
-        QuickSort.threeWayQuickSort(characters,0,characters.length-1);
+        int length = chars.length;
+        QuickSort.threeWayQuickSortOnChar(chars,0,length-1);
 
         //2、每次找到一个比前一个大一点的排序；
-        int length = characters.length;
-        stringSet.add(arrayToString(characters).toString());
-        while( !SortUtil.isSorted(characters,"desc") ){
+        stringSet.add(String.valueOf(chars));
+        while( !isDesc(chars)){
             int i = length -1;
             // 找到第一个 characters[i-1]< characters[i]
-            while( !SortUtil.less(characters[i-1],characters[i]) && i>0 ){
+            while( !(chars[i-1]<chars[i]) && i>0 ){
                 i--;
             }
             // characters[i-1]和比characters[i-1]大的最小的那个元素（倒着数第一个比它大的）交换
             for(int j=length-1; j>=i-1; j--){
-                if(SortUtil.less(characters[i-1],characters[j])){
-                    SortUtil.exch(characters, i-1, j);
+                if(chars[i-1]<chars[j]){
+                    swap(chars, i-1, j);
                     break;
                 }
             }
-            reverse(characters,i,length-1);
-            stringSet.add(arrayToString(characters).toString());
+            reverse(chars,i,length-1);
+            stringSet.add(String.valueOf(chars));
         }
         return stringSet;
     }
@@ -115,7 +103,7 @@ public class AllPermutation {
      * @param start
      * @param end
      */
-    private void reverse(Character[] characters, int start, int end){
+    private void reverse(char[] characters, int start, int end){
         while(start<end){
             char temp = characters[start];
             characters[start] = characters[end];
@@ -125,12 +113,23 @@ public class AllPermutation {
         }
     }
 
+    private boolean isDesc(char[] a){
+        for (int i = 1; i < a.length; i++)
+            if (a[i-1]< a[i])
+                return false;
+        return true;
+    }
 
-    private StringBuilder arrayToString(Character[] characters){
-        StringBuilder str = new StringBuilder();
-        for(int i=0; i<characters.length; i++){
-            str.append(characters[i]);
-        }
-        return str;
+    private boolean isAsc(char[] a){
+        for(int i=1;i<a.length;i++)
+            if(a[i]<a[i-1])
+                return false;
+        return true;
+    }
+
+    private void swap(char[] chars, int i, int j){
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
     }
 }
