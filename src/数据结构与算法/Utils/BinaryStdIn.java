@@ -282,7 +282,7 @@ public final class BinaryStdIn {
     }
     
    /**
-     * Test client. Reads in a binary input file from standard input and writes
+     * Test1 client. Reads in a binary input file from standard input and writes
      * it to standard output.
      *
      * @param args the command-line arguments

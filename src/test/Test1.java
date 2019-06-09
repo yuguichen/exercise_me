@@ -1,12 +1,17 @@
 package test;
 
+import org.junit.Test;
+import 数据结构与算法.Utils.SortUtil;
+import 数据结构与算法.查找.BinarySearchTree;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * 判断连续数字长度
  */
-public class Test {
+public class Test1 {
     public static void main(String[] args){
         //从控制台输入
         int[] a = getIn();
@@ -65,6 +70,30 @@ public class Test {
             }
         }
         return arrayList;
+    }
+
+    @Test
+    public void tesBST(){
+        BinarySearchTree<Integer,Integer> bst = new BinarySearchTree<>();
+        Integer[] a = {18,19,7,14,5,2,2,13,12,9};
+        Arrays.stream(a).forEach(System.out::println);
+
+        System.out.println("--------");
+        Arrays.stream(a).forEach((value)->bst.put(value,value));
+        Object[] vals = bst.dlr();
+        Arrays.stream(vals).forEach(System.out::println);
+        System.out.println("--------");
+
+        Object[] vals2 = bst.dlr2();
+        for( Object node:vals2){
+            System.out.print( node+",");
+        }
+
+        System.out.println("--------");
+        Object[] vals3 = bst.ldr();
+        for( Object val:vals3){
+            System.out.print( val+",");
+        }
     }
 
 

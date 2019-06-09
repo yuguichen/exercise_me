@@ -1,17 +1,15 @@
 package 数据结构与算法.链表;
 
-public class Node {
-     int val;
-     Node next;
-     Node(int x) { val = x; }
+public class Node<Key extends Comparable<Key>, Value> {
+     private Key key;           // sorted by key
+     private Value val;         // associated data
+     private Node left, right;  // left and right subtrees
+     private int size;          // number of nodes in subtree
 
-     public static Node getNodeList(int[] test){
-          Node head = new Node(test[0]);
-          Node cur = head;
-          for(int i= 1;i<test.length;i++){
-               cur.next = new Node(test[i]);
-               cur = cur.next;
-          }
-          return head;
+     public Node(Key key, Value val, int size) {
+          this.key = key;
+          this.val = val;
+          this.size = size;
      }
+
 }
