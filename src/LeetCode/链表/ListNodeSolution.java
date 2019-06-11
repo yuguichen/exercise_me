@@ -3,7 +3,7 @@ package LeetCode.链表;
 import java.util.Set;
 import java.util.TreeSet;
 
-class ListNode {
+class ListNodeSolution {
      // 节点类
      class Node{
           int val;
