@@ -1,11 +1,13 @@
 package test;
 
 import org.junit.Test;
-import 数据结构与算法.Utils.SortUtil;
+import 数据结构与算法.查找.AVLTree;
 import 数据结构与算法.查找.BinarySearchTree;
+import 数据结构与算法.查找.RedBlackTree;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -96,5 +98,33 @@ public class Test1 {
         }
     }
 
+    @Test
+    public void tesAVL(){
+        AVLTree<Integer,Integer> avl = new AVLTree<>();
+        Integer[] a = {18,19,7,14,5,2,2,13,12,9};
+        Arrays.stream(a).forEach((value)->avl.put(value,value));
+        System.out.println("--------");
+    }
+
+    @Test
+    public void testRedBlackTree(){
+        RedBlackTree<Character,Character> redBlackTree = new RedBlackTree<>();
+
+        Character[] c = {'s','e','a','r','c','h','x','m','p','l'};
+        for(int i=0;i<c.length;i++){
+            redBlackTree.put(c[i],c[i]);
+        }
+        System.out.println("--------");
+
+        redBlackTree.deleteMin();
+        System.out.println("--------");
+
+        redBlackTree.delete('m');
+        System.out.println("--------");
+
+        redBlackTree.delete('x');
+        System.out.println("--------");
+
+    }
 
 }

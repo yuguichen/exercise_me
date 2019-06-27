@@ -29,8 +29,6 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     public void put(Key key, Value val){
         if(key == null)
             throw new IllegalArgumentException("key不能为空！");
-        if(val == null)
-            ;
         root = put(root,key,val);
     }
 
@@ -160,7 +158,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
      * @return size
      */
     public int size(){
-        return size(root);
+        if(root == null)
+            return 0;
+        return root.size;
     }
 
     /**
@@ -234,15 +234,15 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     }
 
 
-    public Object[] ldr(){
-        return ldr(root);
-    }
-
     /**
      * 中序优先遍历
      *      左子树---> 根结点 ---> 右子树
      * @return
      */
+    public Object[] ldr(){
+        return ldr(root);
+    }
+
     public Object[] ldr(Node node){
         Object[] vals = new Object[node.size];
         Object[] left;

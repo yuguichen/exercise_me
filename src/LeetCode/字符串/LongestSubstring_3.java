@@ -6,7 +6,10 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution {
+/**
+ * 3、无重复字符的最长子串
+ */
+public class LongestSubstring_3 {
     @Test
     public void test(){
         String s = "abcdefghijklmnopqrstuvwxyz0123456789";
