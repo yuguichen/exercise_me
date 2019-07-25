@@ -9,7 +9,7 @@
 
 package 数据结构与算法.bean;
 
-import 数据结构与算法.Utils.StdOut;
+import utils.InandOutUtils.StdOut;
 
 /**
  *  The {@code Date} class is an immutable data type to encapsulate a

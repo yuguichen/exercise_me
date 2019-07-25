@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-package 数据结构与算法.Utils;
+package utils.InandOutUtils;
 
 import java.util.*;
 import java.util.regex.Pattern;

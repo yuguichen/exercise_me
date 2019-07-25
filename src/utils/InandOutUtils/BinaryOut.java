@@ -12,7 +12,7 @@
  *
  ******************************************************************************/
 
-package 数据结构与算法.Utils;
+package utils.InandOutUtils;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

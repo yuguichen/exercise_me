@@ -1,14 +1,14 @@
 package test;
 
 import org.junit.Test;
+import utils.InandOutUtils.In;
+import 数据结构与算法.图.Graph;
 import 数据结构与算法.查找.AVLTree;
 import 数据结构与算法.查找.BinarySearchTree;
 import 数据结构与算法.查找.RedBlackTree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.File;
+import java.util.*;
 
 /**
  * 判断连续数字长度
@@ -125,6 +125,24 @@ public class Test1 {
         redBlackTree.delete('x');
         System.out.println("--------");
 
+    }
+
+    @Test
+    public void testGraph(){
+        // File file = new File("G:\\Java_WorkSpace\\exercise_me\\src\\test\\tinyG");
+        File file = new File(Thread.currentThread().getContextClassLoader().getResource("test/tinyG").getFile());
+        Graph graph = new Graph(new In(file));
+        System.out.println("--------");
+
+    }
+
+    @Test
+    public void teatA(){
+        C c = new C();
+        A a1 = c.getE();
+        System.out.println(a1.aaaa());
+        A a2 = c.getF();
+        System.out.println(a2.aaaa());
     }
 
 }

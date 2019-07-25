@@ -9,10 +9,10 @@
  *
  ******************************************************************************/
 
-package 数据结构与算法.查找;
+package 数据结构与算法.bean;
 
-import 数据结构与算法.Utils.StdIn;
-import 数据结构与算法.Utils.StdOut;
+import utils.InandOutUtils.StdIn;
+import utils.InandOutUtils.StdOut;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

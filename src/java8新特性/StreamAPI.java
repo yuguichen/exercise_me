@@ -2,7 +2,7 @@ package java8新特性;
 
 import javaSE.src2.Person;
 import org.junit.Test;
-import 数据结构与算法.Utils.SortUtil;
+import utils.SortUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;

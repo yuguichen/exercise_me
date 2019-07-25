@@ -1,4 +1,4 @@
-package 美团;
+package 笔试.美团;
 
 import java.util.HashMap;
 import java.util.Map;

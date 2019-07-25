@@ -1,4 +1,4 @@
-package 面试笔试宝典;
+package javaSE.面试笔试宝典;
 
 public class 继承 extends Base{
     //static int i = 20;

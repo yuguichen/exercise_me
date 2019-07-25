@@ -1,6 +1,6 @@
 package 数据结构与算法.排序;
 
-import 数据结构与算法.Utils.SortUtil;
+import utils.SortUtil;
 
 /**
  * 归并排序
