@@ -5,6 +5,7 @@ import utils.InandOutUtils.In;
 import utils.InandOutUtils.StdOut;
 
 import java.io.File;
+import java.util.Stack;
 
 public class TestGraph {
 
@@ -27,6 +28,63 @@ public class TestGraph {
                 StdOut.printf("%d to %d:  not connected\n", 5, v);
             }
 
+        }
+    }
+
+    @Test
+    public void testDigraph(){
+        String path = "test/tinyG";
+        File file = new File(Thread.currentThread().getContextClassLoader().getResource(path).getFile());
+        Digraph digraph = new Digraph(new In(file));
+
+        DirectedCycle directedCycle = new DirectedCycle(digraph);
+        if(directedCycle.hasCycle()){
+            Stack<Integer> stack = (Stack<Integer>)directedCycle.cycle();
+            while(!stack.empty()){
+                System.out.print(stack.pop()+"-");
+            }
+            System.out.print("end");
+        }
+
+    }
+
+    @Test
+    public void testStack(){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(3);
+
+
+        for(int w:stack){
+            System.out.print(w+"-");
+        }
+        System.out.println("end");
+
+        while(!stack.empty()){
+            System.out.print(stack.pop()+"-");
+        }
+    }
+
+    @Test
+    public void testSCC(){
+        String path = "test/tinyG";
+        File file = new File(Thread.currentThread().getContextClassLoader().getResource(path).getFile());
+        Digraph digraph = new Digraph(new In(file));
+
+        KosarajuSCC kosarajuSCC = new KosarajuSCC(digraph);
+        int count = kosarajuSCC.getCount();
+        int[] id = kosarajuSCC.getId();
+        System.out.println(count+"componments");
+        System.out.println();
+        for(int i=0; i<count; i++){
+            System.out.print(i+":");
+            for(int j=0; j<digraph.V();j++){
+                if(id[j]==i)
+                    System.out.print(j+",");
+            }
+            System.out.println();
         }
     }
 }

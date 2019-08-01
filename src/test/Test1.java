@@ -138,11 +138,10 @@ public class Test1 {
 
     @Test
     public void teatA(){
-        C c = new C();
-        A a1 = c.getE();
-        System.out.println(a1.aaaa());
-        A a2 = c.getF();
-        System.out.println(a2.aaaa());
+        String s = "sdsaodfkdsoif";
+        System.out.println(s.charAt(0));
+        int a = s.charAt(0);
+        System.out.println(a);
     }
 
 }
