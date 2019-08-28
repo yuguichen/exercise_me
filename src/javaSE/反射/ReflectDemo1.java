@@ -18,9 +18,9 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ReflectDemo1 {
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-       // getClassObject_2();
-        //CreateNewObject();
-        CreateNewObject2();
+        getClassObject_1();
+        getClassObject_2();
+
     }
 
     /**
@@ -39,23 +39,14 @@ public class ReflectDemo1 {
      * 2、通过给定类的字符串名称可以获取该类
      *    用class类中的  forName（）方法就可以完成；
      */
-    public static void getClassObject_2() throws ClassNotFoundException {
+    public static void getClassObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
         String className = "javaSE.src2.Person";
         Class clazz = Class.forName(className);
         Class clazz1= Class.forName(className);
         System.out.println(clazz==clazz1);
-    }
 
-    /**
-     * 获取字节码文件后创建实例对象
-     */
-    public static void CreateNewObject() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String className = "javaSE.src2.Person";
-        Class clazz = Class.forName(className);
-        //创建此类的一个新实例
-        //调用空参构造函数
+        // 获取字节码文件后创建实例对象
         Object obj = clazz.newInstance();
-
     }
 
     public static void CreateNewObject2() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -67,7 +58,6 @@ public class ReflectDemo1 {
         Constructor constructor = clazz.getConstructor(String.class,int.class);
         //通过构造器对象的newInstance方法创建对象并初始化
         Object obj = constructor.newInstance("xiaoming",24);
-
 
     }
 }

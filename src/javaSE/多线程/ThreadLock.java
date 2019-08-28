@@ -6,7 +6,11 @@ public class ThreadLock {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                test.method2();
+                try {
+                    test.method2();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 test.method3();
             }
         };
@@ -18,18 +22,19 @@ public class ThreadLock {
     public synchronized void method1(){
         try {
             Thread.sleep(1000);
-            System.out.println("call method1");
+            System.out.println("call method1"+Thread.currentThread().getName());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static synchronized void method2(){
-        System.out.println("call method2" );
+    public static synchronized void method2() throws InterruptedException {
+        Thread.sleep(1000);
+        System.out.println("call method2" +Thread.currentThread().getName());
     }
 
     public synchronized  void method3(){
-        System.out.println("call method3" );
+        System.out.println("call method3" +Thread.currentThread().getName());
     }
 
 

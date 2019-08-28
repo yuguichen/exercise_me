@@ -32,6 +32,11 @@ class Resources{
     private Object[] items = new Object[200];
     int count,putptr,takeptr;
 
+    /**
+     * 生产行为
+     * @param obj
+     * @throws InterruptedException
+     */
     public void produce(Object obj) throws InterruptedException {
         lock.lock();
         try {
@@ -49,6 +54,11 @@ class Resources{
 
     }
 
+    /**
+     * 消费行为
+     * @return
+     * @throws InterruptedException
+     */
     public Object consume() throws InterruptedException {
         lock.lock();
         try{

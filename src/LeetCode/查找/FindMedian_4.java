@@ -27,7 +27,7 @@ public class FindMedian_4 {
         int m = nums1.length; // 第一个数组长度
         int n = nums2.length; // 第二个数组长度
 
-        // 保证 m<= n, j>=0
+        // 保证 m <= n, j>=0
         if(m>n){
             int[] temp = nums1; nums1 = nums2; nums2 = temp;
             int tem = m; m = n; n = tem;

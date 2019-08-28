@@ -5,12 +5,13 @@ import java.util.TreeSet;
 
 class ListNodeSolution {
      // 节点类
-     class Node{
+     static class Node{
           int val;
           Node next;
+          Node() { }
           Node(int x) { val = x; }
 
-         public  Node getNodeList(int[] test){
+         public static Node getNodeList(int[] test){
              Node head = new Node(test[0]);
              Node cur = head;
              for(int i= 1;i<test.length;i++){
@@ -19,6 +20,32 @@ class ListNodeSolution {
              }
              return head;
          }
+
+         public static Node getNodeList(int N){
+               Node pre = new Node();
+               Node cur = pre;
+               for(int i= 1;i<N;i++){
+                    cur.next = new Node(i);
+                    cur = cur.next;
+               }
+               return pre.next;
+          }
+
+          public static String toString(Node node){
+               StringBuilder stringBuilder = new StringBuilder();
+               while(node!=null){
+                    stringBuilder.append(node.val+" ");
+                    node = node.next;
+               }
+               return stringBuilder.toString();
+          }
+     }
+
+     public static void main(String[] args){
+          Node head = Node.getNodeList(10);
+          System.out.println(Node.toString(head));
+          Node newHead = reverse1(head);
+          System.out.println(Node.toString(newHead));
      }
 
      /**
@@ -194,17 +221,27 @@ class ListNodeSolution {
           }
      }
 
-     public  Node reverse(Node head){
-          Node prev = new Node(0);
-          Node node = new Node(0);
-          prev.next = head;
-          while (head.next!=null){
-               node.next = head.next.next;
-               head.next.next = prev.next;
-               prev.next = head.next;
-               head.next = node.next;
+
+     /**
+      * 反转链表
+      * @param head
+      * @return
+      */
+     public static Node reverse1(Node head){
+          Node cur = head;
+          Node newNode = head;
+          Node node;
+
+          while(head.next!=null){
+               node = head.next.next;
+               newNode = head.next;
+               head.next = node;
+               newNode.next = cur;
+               cur = newNode;
           }
-          return prev.next;
+
+          return newNode;
+
      }
 
      /**
