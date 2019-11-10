@@ -152,6 +152,21 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         else
             return node.right;
     }
+    public void deleteAllye(){
+        root = deleteAllye(root);
+    }
+
+    private Node deleteAllye(Node node){
+        if(node.left == null && node.right ==null)
+            return null;
+
+        if(node.left !=null)
+            node.left = deleteAllye(node.left);
+        if(node.right !=null)
+            node.right = deleteAllye(node.right);
+        return node;
+
+    }
 
     /**
      * 返回树的节点个数（大小）
@@ -227,7 +242,6 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
                 top[t++] = temp;
                 temp = temp.left;
             }
-
             temp = top[--t].right;
         }
         return vals;
@@ -265,6 +279,19 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
         }
 
         return vals;
+    }
+
+    public static void main(String[] args){
+        BinarySearchTree<Integer,Integer> tree = new BinarySearchTree<>();
+        int[] arr = {9,64,65,4,31,6,3,5,2,8,11};
+        for(int i=0;i<arr.length;i++){
+            tree.put(arr[i],arr[i]);
+        }
+
+        tree.deleteAllye();
+        System.out.println();
+
+
     }
 }
 

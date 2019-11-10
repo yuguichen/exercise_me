@@ -2,19 +2,25 @@ package test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 
 public class Demo {
-    public static void main(String[] args){
-        String strDate="2005/4-2 1:2:3";
 
-        //注意：SimpleDateFormat构造函数的样式与strDate的样式必须相符
-        //SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy年MM月dd日 ");
-        String time =  handleTime2(strDate);
-        System.out.println(time);
-
-
+    public static void main(String[] args) {
+        Integer a = 1;
+        Integer b = 2;
+        Integer c = 3;
+        Integer d = 3;
+        Integer e = 321;
+        Integer f = 321;
+        Long g = 3L;
+        System.out.println(c==d);
+        System.out.println(e==f);
+        System.out.println(c==(a+b));
+        System.out.println(c.equals(a+b));
+        System.out.println(g==(a+b));
+        System.out.println(g.equals(a+b));
 
     }
 
