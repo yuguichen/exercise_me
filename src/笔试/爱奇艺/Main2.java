@@ -3,7 +3,7 @@ package 笔试.爱奇艺;
 import java.util.Scanner;
 
 /**
- * leetcode 903
+ * LeetCode 903
  */
 public class Main2 {
 

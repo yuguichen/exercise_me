@@ -2,8 +2,11 @@ package 数据结构与算法.排序;
 
 import 数据结构与算法.查找.BinarySearchST;
 
+import java.util.*;
+
 public class Test {
     public static void main(String args[]){
+
 //        MaxPQ<Character> maxPQ = new MaxPQ(7);
 //        maxPQ.insert('c');
 //        maxPQ.insert('a');

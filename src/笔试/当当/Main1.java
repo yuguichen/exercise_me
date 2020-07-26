@@ -5,34 +5,46 @@ import java.util.Scanner;
 
 public class Main1 {
 
-
-    public static String[] danwei = {"元","拾","佰","仟","万","拾","佰","仟","亿","拾","佰","仟","万","拾","佰","仟"};
+    public static String[] danwei_L = {"","拾","佰","仟"};
+    public static String[] danwei_H = {"","万","亿","万亿"};
     public static char[] shuzi = {'零','壹','贰','叁','肆','伍','陆','柒','捌','玖'};
+
     public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
+//        Scanner in = new Scanner(System.in);
+//        long n = in.nextLong();
 
-        long n = 4234120024453l;
-        int i=0;
-        String s = "";
+        long n = 1409000294;
+        String result = "元";
 
+        int l=0;
+        int h=0;
+        boolean flag = false;
         while(n!=0){
-            long temp = n%10;
-            StringBuilder sb = new StringBuilder();
-            sb.append(shuzi[(int)temp]);
+            StringBuilder stringBuilder = new StringBuilder();
+            int num = (int) n%10;
+            n/=10;
+            if(num != 0){
+                stringBuilder.append(shuzi[num]);
+                stringBuilder.append(danwei_L[l++]);
+                flag = true;
+            } else if(flag){
+                stringBuilder.append(shuzi[num]);
+                l++;
+            } else{
+                l++;
+            }
 
-            if(temp!=0)
-                sb.append(danwei[i]);
-
-            i++;
-            sb.append(s);
-            s = sb.toString();
-            n=n/10;
+            stringBuilder.append(result);
+            result = stringBuilder.toString();
+            if(l==danwei_L.length) {
+                l = 0;
+                h++;
+                result = danwei_H[h]+result;
+                flag = false;
+            }
         }
-        while (s.contains("零零"))
-            s.replaceAll("零零","零");
-
-        s+="整";
-        System.out.println(s);
+        result = result.replaceAll("零+","零");
+        System.out.println(result);
     }
 
 
