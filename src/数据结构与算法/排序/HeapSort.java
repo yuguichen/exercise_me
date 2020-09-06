@@ -2,6 +2,9 @@ package 数据结构与算法.排序;
 
 import utils.SortUtil;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * 堆排序
  *   比较次数 < {2*N*lg(N) + 2*N}
@@ -9,6 +12,14 @@ import utils.SortUtil;
  *        排序  2*N*lg(N)
  */
 public class HeapSort {
+    // 通过 PriorityQueue（默认小顶堆） 和比较器，构造大顶堆
+    PriorityQueue maxHeap = new PriorityQueue(new Comparator<Integer>() {
+        @Override
+        public int compare(Integer o1, Integer o2) {
+            return o2-o1;
+        }
+    });
+
     public static void main(String[] args){
         Integer[] a = SortUtil.randn(10,100);
         a[0] = 0;
