@@ -27,5 +27,6 @@
         <jarDirectory url="file://$MODULE_DIR$/src/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javacsv" level="project" />
   </component>
 </module>
